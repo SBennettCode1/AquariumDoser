@@ -2,12 +2,12 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 60px;
+    width: 3vw;
     background-color: #f1f1f1;
     position: absolute;
     top: 6vh;
     left: 0;
-    height: 93vh;
+    height: 94vh;
 }
 
 #navBarUl li a {
@@ -56,4 +56,12 @@
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+
+#contentContainer {
+    width: 97vw;
+    height: 94vh;
+    position: absolute;
+    top: 6vh;
+    left: 3vw;
 }
