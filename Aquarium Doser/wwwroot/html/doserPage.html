@@ -2,9 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/doserPage.css">
     <title></title>
 </head>
 <body>
-    <p>Doser Page</p>
+    <div id="doserSelectText">
+        <p>Select Additive</p>
+        <p id="tankVolumeLabel">Enter Tank Volume</p>
+    </div>
+    
+    <div>
+        <div class="doserSelect">
+            <select>
+                <option value="Seachem Flourish">Seachem Flourish</option>
+                <option value="Seachem Flourish Excel">Seachem Flourish Excel</option>
+            </select>
+        </div>
+    
+        <input type="number" id="volumeInput" min="1" max="1000">
+     </div>
 </body>
 </html>

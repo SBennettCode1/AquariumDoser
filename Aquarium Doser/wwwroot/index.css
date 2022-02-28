@@ -43,11 +43,6 @@
     height: 6vh;
 }
 
-.topnav a{
-    background-color: #315399;
-    height: 6vh;
-}
-
 .topnav a {
   float: right;
   color: #f2f2f2;
@@ -55,6 +50,8 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  background-color: #315399;
+  height: 6vh;
 }
 
 .topnav a:hover {
@@ -71,3 +68,4 @@
     padding-left: 0.5vw;
     box-sizing: border-box;
 }
+
