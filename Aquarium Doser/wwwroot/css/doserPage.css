@@ -52,7 +52,7 @@
     font-size: 20px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     outline: none;
-    display: inline-block
+    display: inline-block;
 }
 
 #doserSelectText p{
@@ -62,5 +62,20 @@
 
 #tankVolumeLabel{
     margin-left: 7vw;
+}
+
+#calculateButton {
+    left: 1vw;
+    top: 0.5vw;
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: #315399;
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+    outline: none;
 }
 
