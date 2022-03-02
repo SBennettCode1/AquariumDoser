@@ -8,6 +8,7 @@ site.doserPage.additiveList = {
 
 $(document).ready(function () {
     site.doserPage.bindEvents();
+    site.doserPage.getAdditiveData();
 });
 
 site.doserPage.bindEvents = function () {
@@ -29,4 +30,19 @@ site.doserPage.getArrayValueById = function (name) {
         if (additive.name == name)
             return additive;
     }
+}
+
+site.doserPage.getAdditiveData = function (callback) {
+    var url = `ApiController`;
+
+    $.ajax({
+        dataType: "json",
+        url: url,
+        success: function (json) {
+            console.log(json);
+        },
+        error: function () {
+            console.error("site.doserPage.getAdditiveData failed");
+        }
+    });
 }
