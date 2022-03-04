@@ -79,3 +79,18 @@
     outline: none;
 }
 
+#afterCalculationTextContainer {
+    left: 1.5vw;
+    top: 1.4vw;
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: #315399;
+    height: 48px;
+    width: 250px;
+    display: inline-block;
+    outline: none;
+}
+

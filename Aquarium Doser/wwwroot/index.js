@@ -20,4 +20,11 @@ site.index.bindEvents = function () {
             console.log("html/doserPage.html loaded");
         });
     });
+
+    $("#addDosageListItem").off().click(() => {
+        $("#contentContainer").load("html/addDosage.html", function () {
+            console.log("html/addDosage.html loaded");
+        });
+    });
+
 }

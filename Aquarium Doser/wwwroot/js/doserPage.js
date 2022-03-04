@@ -15,6 +15,7 @@ site.doserPage.bindEvents = function () {
     $("#calculateButton").off().click(() => {
         let selectedAdditive = site.doserPage.getArrayValueById($("#innerDoserSelect").val());
         let calculationResult = site.doserPage.doCalculation($("#volumeInput").val(), selectedAdditive.volume, selectedAdditive.quantity);
+        $("#afterCalculationText").html(calculationResult + selectedAdditive.quantityUnits);
         console.log(calculationResult);
     });
 }

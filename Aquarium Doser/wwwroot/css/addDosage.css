@@ -1,0 +1,43 @@
+﻿#addDosageContainer {
+    background-color: lightgrey;
+    height: 85vh;
+    width: 20vw;
+    position: relative;
+}
+.addDosageContainerInput {
+    font-size: 20px;
+    border: none;
+    color: white;
+    background-color: #315399;
+    border: none;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    outline: none;
+    display: block;
+}
+#addDosageContainer > div {
+    margin-top: 2vh;
+}
+
+.yellowBackground {
+    background-color: yellow;
+    color: black;
+}
+.greenBackground {
+    background-color: lightgreen;
+    color: black;
+}
+.redBackground {
+    background-color: lightcoral;
+    color: black;
+}
+.blueBackground {
+    background-color: lightblue;
+    color: black;
+}
+.purpleBackground {
+    background-color: mediumpurple;
+    color: white;
+}
+.shrinkStyle > p {
+    width: 250px;
+}
