@@ -1,5 +1,6 @@
 ﻿body {
     font-family: monospace, Andale Mono;
+    overflow: hidden;
 }
 #navBarUl {
     list-style-type: none;
@@ -8,7 +9,7 @@
     width: 3vw;
     background-color: #f1f1f1;
     position: absolute;
-    top: 6vh;
+    top: 8vh;
     left: 0;
     height: 94vh;
 }
@@ -40,7 +41,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 6vh;
+    height: 8vh;
 }
 
 .topnav a {
@@ -60,11 +61,11 @@
 }
 
 #contentContainer {
-    width: 97vw;
-    height: 94vh;
+    width: 96vw;
+    height: 92vh;
     position: absolute;
-    top: 6vh;
-    left: 3vw;
+    top: 8vh;
+    left: 4vw;
     padding-left: 0.5vw;
     box-sizing: border-box;
 }

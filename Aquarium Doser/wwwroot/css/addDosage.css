@@ -2,7 +2,8 @@
     background-color: lightgrey;
     height: 85vh;
     width: 20vw;
-    position: relative;
+    position: absolute;
+    top: 5vh;
 }
 .addDosageContainerInput {
     font-size: 20px;
@@ -38,6 +39,12 @@
     background-color: mediumpurple;
     color: white;
 }
-.shrinkStyle > p {
-    width: 250px;
+
+#exampleContainer {
+    background-color: lightgrey;
+    height: 85vh;
+    width: 20vw;
+    position: absolute;
+    top: 5vh;
+    left: 48vh;
 }
