@@ -10,13 +10,21 @@ $(document).ready(function () {
     site.doserPage.bindEvents();
     site.doserPage.getAdditiveData();
 });
-
+let options = {
+    "positionClass": "toast-top-center",
+};
 site.doserPage.bindEvents = function () {
     $("#calculateButton").off().click(() => {
-        let selectedAdditive = site.doserPage.getArrayValueById($("#innerDoserSelect").val());
-        let calculationResult = site.doserPage.doCalculation($("#volumeInput").val(), selectedAdditive.volume, selectedAdditive.quantity);
-        $("#afterCalculationText").html(calculationResult + selectedAdditive.quantityUnits);
-        console.log(calculationResult);
+        if ($("#volumeInput").val() != "") {
+            let selectedAdditive = site.doserPage.getArrayValueById($("#innerDoserSelect").val());
+            let calculationResult = site.doserPage.doCalculation($("#volumeInput").val(), selectedAdditive.volume, selectedAdditive.quantity);
+            $("#afterCalculationText").html(calculationResult + selectedAdditive.quantityUnits);
+            console.log(calculationResult);
+        }
+        else {
+            toastr.error('Volume input cannot be empty', 'ERROR', options);
+        }
+        
     });
 }
 
@@ -34,7 +42,7 @@ site.doserPage.getArrayValueById = function (name) {
 }
 
 site.doserPage.getAdditiveData = function (callback) {
-    var url = `ApiController`;
+    var url = `api/data`;
 
     $.ajax({
         dataType: "json",

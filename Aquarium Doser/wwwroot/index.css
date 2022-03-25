@@ -70,3 +70,7 @@
     box-sizing: border-box;
 }
 
+.roundButton {
+    border-radius: 12px;
+}
+

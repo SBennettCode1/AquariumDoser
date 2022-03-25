@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Aquarium_Doser.Controllers
 {
+    [Route("api")]
     public class ApiController : Controller
     {
         private static readonly List<List<string>> defaultData = new List<List<string>> { 
@@ -89,6 +90,7 @@ namespace Aquarium_Doser.Controllers
         }
 
         [HttpGet]
+        [Route("data")]
         public IActionResult DefaultData()
         {
             return Json(defaultData);
