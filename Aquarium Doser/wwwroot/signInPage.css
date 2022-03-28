@@ -1,0 +1,31 @@
+﻿#signInImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("img/aquariumBackground.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#signInTextContainer{
+    position: absolute;
+    top: 35vh;
+    left: 35vw;
+    height: 20vh;
+    width: 30vw;
+    background-color: black;
+    opacity: 0.8;
+    text-align: center;
+}
+#signInTextContainer > h1 {
+    color: white;
+    font-size: 50px;
+    font-family: monospace, Andale Mono;
+}
+#signInButton{
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+}

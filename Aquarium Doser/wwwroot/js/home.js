@@ -10,4 +10,7 @@ site.home.bindEvents = function () {
             console.log("html/guide.html loaded");
         });
     });
+    $("#signOutRedirect").off().click(() => {
+        window.location.replace("https://localhost:44306/signInPage.html");
+    });
 }

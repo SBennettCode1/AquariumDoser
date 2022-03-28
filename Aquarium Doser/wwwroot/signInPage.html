@@ -3,26 +3,21 @@
 <head>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="151562751523-m76r8t86q0fjep1v6o4pu4j6m5am3mas.apps.googleusercontent.com">
+    <link rel="stylesheet" href="signInPage.css">
+    <script src="signInPage.js"></script>
     <meta charset="utf-8" />
     <title></title>
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
-
-    <script>
-        function onSignIn(googleUser) {
-            // get user profile information
-            console.log(googleUser.getBasicProfile());
-            window.location.replace("https://localhost:44306/index.html");
-        }
-
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-            });
-        }
-    </script>
+    <div>
+    </div>
+    <div id="signInImageContainer">
+        <div id="signInButton" class="g-signin2" data-onsuccess="onSignIn"></div>
+        <a href="" onclick="signOut();">Sign out</a>
+        <div id="signInTextContainer">
+            <h1>Aquarium Doser</h1>
+        </div>
+    </div>
 </body>
 </html>
+
