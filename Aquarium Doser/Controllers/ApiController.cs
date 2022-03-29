@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Aquarium_Doser.Processors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,90 +11,23 @@ namespace Aquarium_Doser.Controllers
     [Route("api")]
     public class ApiController : Controller
     {
+        private readonly DefaultDataProcessor defaultDataProcessor;
+
+        public ApiController()
+        {
+            defaultDataProcessor = new DefaultDataProcessor();
+        }
+        
         private static readonly List<List<string>> defaultData = new List<List<string>> { 
             new List<string> {"Seachem Flourish", "5", "60", "ml", "gallon"}
         };
 
-        // GET: ApiController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: ApiController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ApiController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ApiController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ApiController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ApiController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ApiController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ApiController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         [HttpGet]
         [Route("data")]
-        public IActionResult DefaultData()
+        public async Task<IActionResult> DefaultData()
         {
-            return Json(defaultData);
+            return Json(await defaultDataProcessor.GetDefaultData());
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Aquarium_Doser.Models
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
         public string VolumeUnits { get; set; }
-        public double Quantity { get; set; }
+        public decimal Quantity { get; set; }
         public string QuantityUnits { get; set; }
     }
 }

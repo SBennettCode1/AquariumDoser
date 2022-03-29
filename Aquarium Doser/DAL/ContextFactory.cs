@@ -19,7 +19,7 @@ namespace Aquarium_Doser.DAL
 
         public AquariumDoserContext GetContext()
         {
-            return new AquariumDoserContext(GetDbContextOptions<AquariumDoserContext>("Server=tcp:aqudose.database.windows.net,1433;Initial Catalog=AquariumDoser;Persist Security Info=False;User ID=sam;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+            return new AquariumDoserContext(GetDbContextOptions<AquariumDoserContext>("Server=tcp:aqudose.database.windows.net,1433;Initial Catalog=AquariumDoser;Persist Security Info=False;User ID=sam;Password=N?5MyFT=cwsxS5=O;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
     }
 }
