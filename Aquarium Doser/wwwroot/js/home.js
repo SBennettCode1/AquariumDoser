@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     site.home.bindEvents();
+    $("#welcomeText").text("Welcome to Aquarium Doser, " + site.userInfo.VX + "!");
 });
 
 site.home.bindEvents = function () {

@@ -1,7 +1,9 @@
 ﻿var site = {};
 site.index = {};
+site.userInfo = {};
 
 $(document).ready(function () {
+    site.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
     $("#contentContainer").load("html/home.html", function () {
         console.log("html/home.html loaded");
     });

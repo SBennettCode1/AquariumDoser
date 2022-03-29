@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="google-signin-client_id" content="151562751523-m76r8t86q0fjep1v6o4pu4j6m5am3mas.apps.googleusercontent.com">
     <link rel="stylesheet" href="signInPage.css">
     <script src="signInPage.js"></script>
@@ -13,7 +14,8 @@
     </div>
     <div id="signInImageContainer">
         <div id="signInButton" class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="" onclick="signOut();">Sign out</a>
+        <a id="signInPageSignOutButton" href="" onclick="signOut();">Sign out</a>
+        <button id="nextPageButton">=></button>
         <div id="signInTextContainer">
             <h1>Aquarium Doser</h1>
         </div>

@@ -29,3 +29,13 @@
     top: 1vh;
     left: 1vw;
 }
+#signInPageSignOutButton{
+    position: absolute;
+    top: 6vh;
+    left: 1vw;
+}
+#nextPageButton {
+    position: absolute;
+    top: 6vh;
+    left: 5vw;
+}
