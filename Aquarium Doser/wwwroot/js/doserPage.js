@@ -1,14 +1,15 @@
 ﻿site.doserPage = {};
-site.doserPage.additiveList = {
-    "additives": [
-        { "name": "Seachem Flourish", "volume": 60, "quantity": 5, "volumeUnits": "US Gallons", "quantityUnits": "mL" },
-        { "name": "Seachem Flourish Excel", "volume": 50, "quantity": 5, "volumeUnits": "US Gallons", "quantityUnits": "mL" }
-    ]
-};
+site.doserPage.additiveList = [];
 
 $(document).ready(function () {
     site.doserPage.bindEvents();
-    site.doserPage.getAdditiveData();
+    site.doserPage.getAdditiveData(data => {
+        let s = "";
+        for (let dosage of data) {
+            s += `<option value="Seachem Flourish">${dosage.name}</option>`;
+        }
+        $("#innerDoserSelect").html(s);
+    });
 });
 let options = {
     "positionClass": "toast-top-center",
@@ -16,9 +17,12 @@ let options = {
 site.doserPage.bindEvents = function () {
     $("#calculateButton").off().click(() => {
         if ($("#volumeInput").val() != "") {
-            let selectedAdditive = site.doserPage.getArrayValueById($("#innerDoserSelect").val());
+            let selectedAdditive = site.doserPage.getArrayValueByName($("#innerDoserSelect option:selected").text());
             let calculationResult = site.doserPage.doCalculation($("#volumeInput").val(), selectedAdditive.volume, selectedAdditive.quantity);
-            $("#afterCalculationText").html(calculationResult + selectedAdditive.quantityUnits);
+
+            $("#afterCalculationText").text(calculationResult + selectedAdditive.quantityUnits);
+
+            toastr.success(`Calculated dosage for ${selectedAdditive.name}`);
             console.log(calculationResult);
         }
         else {
@@ -34,8 +38,8 @@ site.doserPage.doCalculation = function (waterVolume, originalVolume, originalQu
     return finalQuantity.toFixed(5);
 }
 
-site.doserPage.getArrayValueById = function (name) {
-    for (let additive of site.doserPage.additiveList.additives) {
+site.doserPage.getArrayValueByName = function (name) {
+    for (let additive of site.doserPage.additiveList) {
         if (additive.name == name)
             return additive;
     }
@@ -46,9 +50,13 @@ site.doserPage.getAdditiveData = function (callback) {
 
     $.ajax({
         dataType: "json",
+        contentType: "application/json",
         url: url,
+        type: "GET",
         success: function (json) {
+            site.doserPage.additiveList = json;
             console.log(json);
+            callback(json);
         },
         error: function () {
             console.error("site.doserPage.getAdditiveData failed");
