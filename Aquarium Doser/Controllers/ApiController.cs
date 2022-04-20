@@ -12,22 +12,27 @@ namespace Aquarium_Doser.Controllers
     public class ApiController : Controller
     {
         private readonly DefaultDataProcessor defaultDataProcessor;
+        private readonly UserDataProcessor userDataProcessor;
+
 
         public ApiController()
         {
             defaultDataProcessor = new DefaultDataProcessor();
+            userDataProcessor = new UserDataProcessor();
         }
         
-        private static readonly List<List<string>> defaultData = new List<List<string>> { 
-            new List<string> {"Seachem Flourish", "5", "60", "ml", "gallon"}
-        };
-
-
         [HttpGet]
         [Route("data")]
         public async Task<IActionResult> DefaultData()
         {
             return Json(await defaultDataProcessor.GetDefaultData());
+        }
+
+        [HttpGet]
+        [Route("UserDataByEmail")]
+        public async Task<IActionResult> UserDataByEmail(string email)
+        {
+            return Json(await userDataProcessor.GetUserDataByEmail(email));
         }
     }
 }

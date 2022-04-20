@@ -11,6 +11,7 @@ namespace Aquarium_Doser.DAL
         public AquariumDoserContext(DbContextOptions options) : base(options) { }
 
         public DbSet<DefaultData> DefaultDataObjects { get; set; }
+        public DbSet<UserData> UserDataObjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,18 @@ namespace Aquarium_Doser.DAL
                 entity.Property(dd => dd.VolumeUnits).HasColumnName("volume_units").IsRequired(true);
                 entity.Property(dd => dd.Quantity).HasColumnName("quantity").IsRequired(true);
                 entity.Property(dd => dd.QuantityUnits).HasColumnName("quantity_units").IsRequired(true);
+            });
+
+            modelBuilder.Entity<UserData>(entity =>
+            {
+                entity.ToTable("user_data", schema: "dbo").HasKey(k => k.ID);
+                entity.Property(dd => dd.ID).HasColumnName("id").IsRequired(true);
+                entity.Property(dd => dd.Name).HasColumnName("name").IsRequired(true);
+                entity.Property(dd => dd.Volume).HasColumnName("volume").IsRequired(true);
+                entity.Property(dd => dd.VolumeUnits).HasColumnName("volume_units").IsRequired(true);
+                entity.Property(dd => dd.Quantity).HasColumnName("quantity").IsRequired(true);
+                entity.Property(dd => dd.QuantityUnits).HasColumnName("quantity_units").IsRequired(true);
+                entity.Property(dd => dd.Email).HasColumnName("email").IsRequired(true);
             });
 
             base.OnModelCreating(modelBuilder);
