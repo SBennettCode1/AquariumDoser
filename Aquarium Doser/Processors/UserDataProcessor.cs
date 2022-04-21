@@ -1,5 +1,6 @@
 ﻿using Aquarium_Doser.DAL;
 using Aquarium_Doser.Models;
+using Aquarium_Doser.Models.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,29 @@ namespace Aquarium_Doser.Processors
                 var selectedData = await context.UserDataObjects.FirstOrDefaultAsync(ud => ud.ID == userDataId);
                 context.UserDataObjects.Remove(selectedData);
                 await context.SaveChangesAsync();
-                return true;
             }
+
+            return true;
+        }
+
+        public async Task<bool> PostNewUserData(PostNewUserDataRequestModel request)
+        {
+            using (var context = contextFactory.GetContext())
+            {
+                context.UserDataObjects.Add(new UserData { 
+                    ID = Guid.NewGuid(),
+                    Name = request.Name,
+                    Volume = request.Volume,
+                    VolumeUnits = request.VolumeUnits,
+                    Quantity = request.Quantity,
+                    QuantityUnits = request.QuantityUnits,
+                    Email = request.Email
+                });
+                
+                await context.SaveChangesAsync();
+            }
+
+            return true;
         }
     }
 }

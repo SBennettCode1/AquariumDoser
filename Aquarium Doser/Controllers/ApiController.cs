@@ -1,4 +1,5 @@
-﻿using Aquarium_Doser.Processors;
+﻿using Aquarium_Doser.Models.Request;
+using Aquarium_Doser.Processors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,16 +31,24 @@ namespace Aquarium_Doser.Controllers
 
         [HttpGet]
         [Route("UserDataByEmail")]
-        public async Task<IActionResult> UserDataByEmail(string email)
+        public async Task<IActionResult> UserDataByEmail([FromQuery] string email)
         {
             return Json(await userDataProcessor.GetUserDataByEmail(email));
         }
 
         [HttpDelete]
         [Route("UserDataById")]
-        public async Task<IActionResult> UserDataById(Guid userDataId)
+        public async Task<IActionResult> UserDataById([FromQuery] Guid userDataId)
         {
             var success = await userDataProcessor.DeleteUserDataById(userDataId);
+            return Json(success);
+        }
+        
+        [HttpPost]
+        [Route("NewUserData")]
+        public async Task<IActionResult> NewUserData([FromBody] PostNewUserDataRequestModel request)
+        {
+            var success = await userDataProcessor.PostNewUserData(request);
             return Json(success);
         }
 
