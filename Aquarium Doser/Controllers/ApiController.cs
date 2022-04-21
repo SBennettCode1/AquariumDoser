@@ -34,5 +34,14 @@ namespace Aquarium_Doser.Controllers
         {
             return Json(await userDataProcessor.GetUserDataByEmail(email));
         }
+
+        [HttpDelete]
+        [Route("UserDataById")]
+        public async Task<IActionResult> UserDataById(Guid userDataId)
+        {
+            var success = await userDataProcessor.DeleteUserDataById(userDataId);
+            return Json(success);
+        }
+
     }
 }
