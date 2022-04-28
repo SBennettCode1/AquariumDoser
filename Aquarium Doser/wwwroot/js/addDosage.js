@@ -27,6 +27,7 @@ site.addDosage.bindEvents = function () {
 
             success: function (json) {
                 console.log(json);
+                site.addDosage.renderDeleteBox();
             },
 
             error: function () {
