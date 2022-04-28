@@ -6,7 +6,7 @@ $(document).ready(function () {
     site.doserPage.getAdditiveData(data => {
         let s = "";
         for (let dosage of data) {
-            s += `<option value="Seachem Flourish">${dosage.name}</option>`;
+            s += `<option>${dosage.name}</option>`;
         }
         $("#innerDoserSelect").html(s);
     });

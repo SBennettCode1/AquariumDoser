@@ -2,7 +2,9 @@
 
 $(document).ready(function () {
     site.addDosage.bindEvents();
+    site.addDosage.renderDeleteBox();
 });
+//$("#deleteDosageSelect option:selected").val()
 
 site.addDosage.bindEvents = function () {
     $("#addDosageButton").off().click(() => {
@@ -32,4 +34,52 @@ site.addDosage.bindEvents = function () {
             }
         });
     });
+
+    $("#deleteDosageButton").off().click(() => {
+        site.addDosage.deleteUserData($("#deleteDosageSelect option:selected").val());
+    });
+}
+
+site.addDosage.getUserDataByEmail = function (callback, email) {
+    var url = `api/UserDataByEmail?email=${email}`;
+
+    $.ajax({
+        dataType: "json",
+        url: url,
+        type: "GET",
+        success: function (json) {
+            callback(json);
+        },
+        error: function () {
+            console.error("site.addDosage.getUserDataByEmail failed");
+        }
+    });
+}
+
+site.addDosage.deleteUserData = function (userDataId) {
+    var url = `api/UserDataById?userDataId=${userDataId}`;
+
+    $.ajax({
+        dataType: "json",
+        url: url,
+        type: "DELETE",
+        success: function (json) {
+            site.addDosage.renderDeleteBox();
+        },
+        error: function () {
+            console.error("site.addDosage.deleteUserData failed");
+        }
+    });
+}
+
+site.addDosage.renderDeleteBox = function () {
+    site.addDosage.getUserDataByEmail(data => {
+        let s = "";
+
+        for (let dosage of data) {
+            s += `<option value="${dosage.id}">${dosage.name}</option>`;
+        }
+        $("#deleteDosageSelect").html(s);
+
+    }, site.userInfo.Bv);
 }
