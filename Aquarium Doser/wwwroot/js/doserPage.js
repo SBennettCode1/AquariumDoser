@@ -3,13 +3,7 @@ site.doserPage.additiveList = [];
 
 $(document).ready(function () {
     site.doserPage.bindEvents();
-    site.doserPage.getAdditiveData(data => {
-        let s = "";
-        for (let dosage of data) {
-            s += `<option>${dosage.name}</option>`;
-        }
-        $("#innerDoserSelect").html(s);
-    });
+    site.doserPage.renderAdditiveList();
 });
 let options = {
     "positionClass": "toast-top-center",
@@ -61,5 +55,43 @@ site.doserPage.getAdditiveData = function (callback) {
         error: function () {
             console.error("site.doserPage.getAdditiveData failed");
         }
+    });
+}
+
+site.doserPage.getUserData = function (callback) {
+    var url = `api/UserDataByEmail?email=${site.userInfo.Bv}`;
+
+    $.ajax({
+        dataType: "json",
+        url: url,
+        type: "GET",
+        success: function (json) {
+            for (let data of json) {
+                site.doserPage.additiveList.push(data);
+            }
+            callback(json);
+        },
+        error: function () {
+            console.error("site.doserPage.getUserData failed");
+        }
+    });
+}
+
+site.doserPage.renderAdditiveList = function () {
+    var s = "";
+
+    site.doserPage.getAdditiveData(data => {
+        for (let dosage of data) {
+            s += `<option>${dosage.name}</option>`;
+        }
+
+        site.doserPage.getUserData(data => {
+            for (let dosage of data) {
+                s += `<option>${dosage.name}</option>`;
+            }
+
+            $("#innerDoserSelect").html(s);
+        });
+
     });
 }
