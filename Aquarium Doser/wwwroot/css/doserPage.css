@@ -1,7 +1,6 @@
 ﻿.doserSelect {
   position: relative;
   top: 1vh;
-  display: inline-block
 }
 
 .doserSelect select {
@@ -41,7 +40,6 @@
 }
 
 #volumeInput {
-    left: 0.5vw;
     top: 0.5vw;
     position: relative;
     background-color: #315399;
@@ -52,20 +50,15 @@
     font-size: 20px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     outline: none;
-    display: inline-block;
 }
 
 #doserSelectText p{
-    display: inline-block;
     margin-bottom: 0;
 }
 
-#tankVolumeLabel{
-    margin-left: 7vw;
-}
+
 
 #calculateButton {
-    left: 1vw;
     top: 0.5vw;
     position: relative;
     font-size: 20px;
@@ -75,12 +68,10 @@
     background-color: #315399;
     height: 48px;
     width: 48px;
-    display: inline-block;
     outline: none;
 }
 
 #afterCalculationTextContainer {
-    left: 1.5vw;
     top: 1.4vw;
     position: relative;
     font-size: 20px;
@@ -90,7 +81,18 @@
     background-color: #315399;
     height: 48px;
     width: 10vw;
-    display: inline-block;
     outline: none;
+}
+
+#doserSelectContainer {
+    background-color: lightgrey;
+    height: 85vh;
+    width: 20vw;
+    position: absolute;
+    top: 5vh;
+}
+
+#doserSelectContainer * {
+    left: 5vw;
 }
 

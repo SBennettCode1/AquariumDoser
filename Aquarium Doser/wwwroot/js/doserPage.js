@@ -5,9 +5,7 @@ $(document).ready(function () {
     site.doserPage.bindEvents();
     site.doserPage.renderAdditiveList();
 });
-let options = {
-    "positionClass": "toast-top-center",
-};
+
 site.doserPage.bindEvents = function () {
     $("#calculateButton").off().click(() => {
         if ($("#volumeInput").val() != "") {
@@ -20,7 +18,9 @@ site.doserPage.bindEvents = function () {
             console.log(calculationResult);
         }
         else {
-            toastr.error('Volume input cannot be empty', 'ERROR', options);
+            toastr.error('Volume input cannot be empty', 'ERROR', {
+                "positionClass": "toast-top-center",
+            });
         }
         
     });
